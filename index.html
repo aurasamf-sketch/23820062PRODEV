@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POY - Parfum Of Yours | Premium Fragrance Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cranberry: {
+                            light: '#ff6b6b',
+                            DEFAULT: '#d63031',
+                            dark: '#b30000'
+                        },
+                        butterfly: {
+                            light: '#d6b3ff',
+                            DEFAULT: '#9b59b6',
+                            dark: '#6c3483'
+                        },
+                        peau: {
+                            light: '#f8c4d6',
+                            DEFAULT: '#f1948a',
+                            dark: '#ec7063'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(214, 48, 49, 0.8) 0%, rgba(155, 89, 182, 0.8) 50%, rgba(241, 148, 138, 0.8) 100%), url('https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn-primary {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .fragrance-note {
+            transition: all 0.3s ease;
+        }
+        
+        .fragrance-note:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="font-body bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white bg-opacity-90 backdrop-blur-sm shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <h1 class="text-3xl font-heading font-bold text-gray-900">POY</h1>
+                    <span class="ml-2 text-sm font-light text-gray-600">Parfum Of Yours</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-900 hover:text-cranberry-dark font-medium transition duration-300">Home</a>
+                        <a href="#collection" class="text-gray-600 hover:text-cranberry-dark font-medium transition duration-300">Collection</a>
+                        <a href="#about" class="text-gray-600 hover:text-cranberry-dark font-medium transition duration-300">About</a>
+                        <a href="#testimonials" class="text-gray-600 hover:text-cranberry-dark font-medium transition duration-300">Testimonials</a>
+                        <a href="#contact" class="text-gray-600 hover:text-cranberry-dark font-medium transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button class="p-2 rounded-full text-gray-600 hover:text-cranberry-dark focus:outline-none">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="ml-4 p-2 rounded-full text-gray-600 hover:text-cranberry-dark focus:outline-none relative">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-cranberry rounded-full">3</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-20 pb-32 md:pb-48 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-20 left-10 w-16 h-16 rounded-full bg-white bg-opacity-20 floating"></div>
+            <div class="absolute bottom-32 right-20 w-12 h-12 rounded-full bg-white bg-opacity-20 floating animation-delay-1000"></div>
+            <div class="absolute top-1/3 right-1/4 w-8 h-8 rounded-full bg-white bg-opacity-20 floating animation-delay-2000"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl md:text-6xl font-heading font-bold text-white leading-tight mb-6">
+                        Discover Your Signature <span class="block">Fragrance With POY</span>
+                    </h1>
+                    <p class="text-xl text-white mb-8 max-w-lg">
+                        Experience the essence of luxury with our exclusive collection of premium perfumes crafted for the modern individual.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#collection" class="btn-primary bg-cranberry hover:bg-cranberry-dark text-white font-medium py-3 px-8 rounded-lg text-lg transition duration-300 text-center">
+                            Explore Collection
+                        </a>
+                        <a href="#free-tester" class="btn-primary bg-white hover:bg-gray-100 text-cranberry font-medium py-3 px-8 rounded-lg text-lg transition duration-300 text-center">
+                            Get Free Tester
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-cranberry to-butterfly opacity-30 absolute -top-6 -left-6"></div>
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-butterfly to-peau opacity-30 absolute -bottom-6 -right-6"></div>
+                        <div class="relative z-10 bg-white rounded-2xl shadow-2xl p-2 transform rotate-3">
+                            <img src="images/cranberry1.png" 
+                            alt="Cranberry Perfume" 
+                            class="w-full h-80 object-contain product-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="collection" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Our Exclusive Collection</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover our carefully curated selection of premium fragrances designed to express your unique personality.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Product 1: Cranberry -->
+                <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition-all duration-500 group">
+                    <div class="relative overflow-hidden">
+                        <img src="images/cranberry1.png" 
+                            alt="Cranberry Perfume" 
+                            class="w-full h-80 object-contain product-image">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="bg-cranberry text-white px-3 py-1 rounded-full text-sm font-medium">Best Seller</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-heading font-bold text-gray-900">Cranberry</h3>
+                                <p class="text-gray-600">Eau de Parfum</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-gray-900">Rp 19.999</p>
+                                <p class="text-sm text-gray-500 line-through">Rp 25.000</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-600">
+                            A vibrant and energetic fragrance with fresh cranberry notes, perfect for those who love bold and fruity scents.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="fragrance-note bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Cranberry</span>
+                            <span class="fragrance-note bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Rosemary</span>
+                            <span class="fragrance-note bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Citrus</span>
+                        </div>
+                        <div class="mt-8 flex space-x-4">
+                            <button class="flex-1 bg-cranberry hover:bg-cranberry-dark text-white py-3 rounded-lg font-medium transition duration-300">
+                                Add to Cart
+                            </button>
+                            <button class="p-3 border border-gray-300 rounded-lg hover:border-cranberry hover:text-cranberry transition duration-300">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2: Peau d'Enfant -->
+                <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition-all duration-500 group">
+                    <div class="relative overflow-hidden">
+                        <img src="images/vanilla1.png" 
+                            alt="Vanilla Perfume" 
+                            class="w-full h-80 object-contain product-image">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="bg-peau text-white px-3 py-1 rounded-full text-sm font-medium">New Arrival</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-heading font-bold text-gray-900">Vanilla</h3>
+                                <p class="text-gray-600">Eau de Parfum</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-gray-900">Rp 25.000</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-600">
+                            A tender and nostalgic fragrance that captures the innocence and purity of childhood through delicate floral notes.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="fragrance-note bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Floral</span>
+                            <span class="fragrance-note bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Powdery</span>
+                            <span class="fragrance-note bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Fruity</span>
+                        </div>
+                        <div class="mt-8 flex space-x-4">
+                            <button class="flex-1 bg-peau hover:bg-peau-dark text-white py-3 rounded-lg font-medium transition duration-300">
+                                Add to Cart
+                            </button>
+                            <button class="p-3 border border-gray-300 rounded-lg hover:border-peau hover:text-peau transition duration-300">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3: Butterfly -->
+                <div class="product-card bg-gray-50 rounded-2xl overflow-hidden shadow-lg transition-all duration-500 group">
+                    <div class="relative overflow-hidden">
+                        <img src="images/Butterfly1.png" 
+                        alt="Butterfly Perfume" 
+                        class="w-full h-80 object-contain product-image">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="bg-butterfly text-white px-3 py-1 rounded-full text-sm font-medium">Limited Edition</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-heading font-bold text-gray-900">Butterfly</h3>
+                                <p class="text-gray-600">Eau de Parfum</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-gray-900">Rp 25.000</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-600">
+                            An ethereal and dreamy fragrance that embodies beauty, freedom, and transformation with elegant floral notes.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="fragrance-note bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Lavender</span>
+                            <span class="fragrance-note bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Jasmine</span>
+                            <span class="fragrance-note bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Vanilla</span>
+                        </div>
+                        <div class="mt-8 flex space-x-4">
+                            <button class="flex-1 bg-butterfly hover:bg-butterfly-dark text-white py-3 rounded-lg font-medium transition duration-300">
+                                Add to Cart
+                            </button>
+                            <button class="p-3 border border-gray-300 rounded-lg hover:border-butterfly hover:text-butterfly transition duration-300">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Tester Promotion -->
+    <section id="free-tester" class="py-20 bg-gradient-to-r from-cranberry to-butterfly">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-12">
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
+                            Try Before You Buy
+                        </h2>
+                        <p class="text-xl text-gray-600 mb-8">
+                            Experience our premium fragrances risk-free with our complimentary tester program. Find your perfect scent today.
+                        </p>
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-6 w-6 rounded-md bg-cranberry text-white">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-lg text-gray-600">Receive 3 free 2ml samples of your choice</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-6 w-6 rounded-md bg-cranberry text-white">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-lg text-gray-600">Complimentary shipping on all orders</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-6 w-6 rounded-md bg-cranberry text-white">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                </div>
+                                <p class="ml-3 text-lg text-gray-600">Exclusive discount on full-size bottles</p>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="inline-block btn-primary bg-cranberry hover:bg-cranberry-dark text-white font-medium py-4 px-10 rounded-lg text-lg transition duration-300">
+                            Request Free Tester
+                        </a>
+                    </div>
+                    <div class="md:w-1/2 bg-gray-100 p-12 flex items-center justify-center">
+                        <div class="relative">
+                            <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-cranberry opacity-20"></div>
+                            <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-butterfly opacity-20"></div>
+                            <div class="relative z-10 grid grid-cols-2 gap-6">
+                                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                                    <img src="images/cranberry1.png" class="w-full h-40 object-contain">
+                                    <p class="mt-4 text-center font-medium">Cranberry</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-2xl shadow-lg mt-12">
+                                    <img src="images/vanilla1.png" class="w-full h-40 object-contain">
+                                    <p class="mt-4 text-center font-medium">Vanilla</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                                    <img src="images/butterfly2.jpg" class="w-full h-40 object-contain">
+                                    <p class="mt-4 text-center font-medium">Butterfly</p>
+                                </div>
+                                <div class="bg-gradient-to-br from-cranberry to-butterfly p-6 rounded-2xl shadow-lg flex items-center justify-center">
+                                    <div class="text-center text-white">
+                                        <i class="fas fa-gift text-4xl mb-3"></i>
+                                        <p class="font-medium">Free Shipping</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover why thousands of customers around the world trust POY for their signature scent.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&h=128&q=80" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900">Salsa Aura</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Cranberry has become my signature scent! The fresh, vibrant notes make me feel confident and energized every day. I receive compliments wherever I go."
+                    </p>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&h=128&q=80" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900">Michael Chen</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "As someone who rarely wears cologne, Vanilla surprised me with its subtle sophistication. It's become my daily essential for both work and weekend outings."
+                    </p>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=128&h=128&q=80" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900">Emma Rodriguez</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Butterfly is pure magic in a bottle. The ethereal quality of this fragrance makes me feel like I'm walking through a garden of dreams. Absolutely enchanting!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Have questions about our fragrances or need assistance with your order? We're here to help.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-gray-50 rounded-3xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-gradient-to-br from-cranberry to-butterfly p-12 text-white">
+                        <h3 class="text-2xl font-heading font-bold mb-6">Contact Information</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <p class="ml-4">123 Luxury Avenue, Paris, France</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <p class="ml-4">+62 81 61 85 32 12</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <p class="ml-4">parfume_poy@gmail.com</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <p class="ml-4">Monday-Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM</p>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-12">
+                            <h4 class="text-xl font-heading font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.instagram.com/hallo_poy" target="_blank"
+                                class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                               <i class="fab fa-instagram"></i>
+                                 </a>
+                                 <a href="https://shopee.co.id/poy_parfumeofyours" target="_blank"
+                                 class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                                <i class="fas fa-shopping-bag"></i>
+                                </a>                           
+                                <a href="https://wa.me/6281234567890" target="_blank"
+                                    class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-12">
+                        <form class="space-y-6">
+                            <div>
+                                <label for="Your Name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-cranberry transition duration-300">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-cranberry transition duration-300">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                <select id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-cranberry transition duration-300">
+                                    <option>General Inquiry</option>
+                                    <option>Product Information</option>
+                                    <option>Order Support</option>
+                                    <option>Wholesale Partnership</option>
+                                    <option>Press & Media</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-cranberry transition duration-300"></textarea>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="w-full btn-primary bg-cranberry hover:bg-cranberry-dark text-white font-medium py-4 px-6 rounded-lg text-lg transition duration-300">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-2xl font-heading font-bold mb-6">POY</h3>
+                    <p class="text-gray-400 mb-6">
+                        Crafting exceptional fragrances for the modern individual since 2015.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/hallo_poy" target="_blank"
+                        class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                       <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/628161853212" target="_blank"
+                            class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://shopee.co.id/poy_parfumeofyours" target="_blank"
+                        class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                       <i class="fas fa-shopping-bag"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Products</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cranberry</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Vanilla</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Butterfly</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Limited Editions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Gift Sets</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Our Story</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sustainability</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to receive updates, access to exclusive deals, and more.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-3 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button class="bg-cranberry hover:bg-cranberry-dark px-4 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-16 pt-10 text-center text-gray-500">
+                <p>&copy; 2023 POY - Parfum Of Yours. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card, .testimonial-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add animation classes
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fade-in-up {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .animate-fade-in-up {
+                animation: fade-in-up 0.6s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
